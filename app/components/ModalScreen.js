@@ -3,19 +3,21 @@ import {View, Text, StyleSheet} from 'react-native'
 
 import NavButton from './NavButton'
 
-const ModalScreen = (props) => {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>This is a Modal Screen</Text>
+const ModalScreen = React.createClass({
+	PropTypes: {
+		onButtonPress: PropTypes.func.isRequired
+	},
 
-			<NavButton destLabel="Second" buttonHandler={props.onButtonPress} />
-		</View>
-	)
-}
+	render() {
+		return (
+			<View style={styles.container}>
+				<Text style={styles.title}>This is a Modal Screen</Text>
 
-ModalScreen.propTypes = {
-	onButtonPress: PropTypes.func.isRequired
-}
+				<NavButton destLabel="Second" buttonHandler={this.props.onButtonPress} />
+			</View>
+		)
+	}
+})
 
 const styles = StyleSheet.create({
 	container: {

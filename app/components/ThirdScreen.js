@@ -3,19 +3,21 @@ import {View, Text, StyleSheet} from 'react-native'
 
 import NavButton from './NavButton'
 
-const ThirdScreen = (props) => {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>Third Screen</Text>
+const ThirdScreen = React.createClass({
+	PropTypes: {
+		onButtonPress: PropTypes.func.isRequired
+	},
 
-			<NavButton destLabel="Home" buttonHandler={props.onButtonPress} />
-		</View>
-	)
-}
+	render() {
+		return (
+			<View style={styles.container}>
+				<Text style={styles.title}>Third Screen</Text>
 
-ThirdScreen.propTypes = {
-	onButtonPress: PropTypes.func.isRequired
-}
+				<NavButton destLabel="Home" buttonHandler={this.props.onButtonPress} />
+			</View>
+		)
+	}
+})
 
 const styles = StyleSheet.create({
 	container: {

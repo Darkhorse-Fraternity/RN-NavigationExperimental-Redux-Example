@@ -3,24 +3,26 @@ import {View, Text, StyleSheet} from 'react-native'
 
 import NavButton from './NavButton'
 
-const SecondScreen = (props) => {
-	return (
-		<View style={styles.container}>
-			<Text style={styles.title}>Second Screen</Text>
+const SecondScreen = React.createClass({
+	PropTypes: {
+		onButtonPress: PropTypes.func.isRequired,
+		onModalButtonPress: PropTypes.func.isRequired
+	},
 
-			<NavButton destLabel="Third" buttonHandler={props.onButtonPress} />
+	render() {
+		return (
+			<View style={styles.container}>
+				<Text style={styles.title}>Second Screen</Text>
 
-			<View style={styles.spacer}>
-				<NavButton destLabel="Modal" buttonHandler={props.onModalButtonPress} />
+				<NavButton destLabel="Third" buttonHandler={this.props.onButtonPress} />
+
+				<View style={styles.spacer}>
+					<NavButton destLabel="Modal" buttonHandler={this.props.onModalButtonPress} />
+				</View>
 			</View>
-		</View>
-	)
-}
-
-SecondScreen.propTypes = {
-	onButtonPress: PropTypes.func.isRequired,
-	onModalButtonPress: PropTypes.func.isRequired
-}
+		)
+	}
+})
 
 const styles = StyleSheet.create({
 	container: {
