@@ -32,7 +32,7 @@ class AppContainer extends React.Component {
 					// This mimics the same type of work done in a NavigationCardStack component
 					<View style={styles.container}>
 						<NavigationCard
-							// <NavigationTransitioner>'s render method passes `navigationState` as a 
+							// NavigationTransitioners render method passes `navigationState` as a 
 							// prop to here, so we expand it plus other props out in <NavigationCard>.
 							{...props}
 							// Transition animations are determined by the StyleInterpolators. Here we manually

@@ -13,7 +13,7 @@ const ModalScreen = React.createClass({
 			<View style={styles.container}>
 				<Text style={styles.title}>This is a Modal Screen</Text>
 
-				<NavButton destLabel="Second" buttonHandler={this.props.onButtonPress} />
+				<NavButton destLabel="(POP) Second" buttonHandler={this.props.onButtonPress} />
 			</View>
 		)
 	}

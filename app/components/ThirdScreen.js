@@ -13,7 +13,7 @@ const ThirdScreen = React.createClass({
 			<View style={styles.container}>
 				<Text style={styles.title}>Third Screen</Text>
 
-				<NavButton destLabel="Home" buttonHandler={this.props.onButtonPress} />
+				<NavButton destLabel="(RESET) Home" buttonHandler={this.props.onButtonPress} />
 			</View>
 		)
 	}
