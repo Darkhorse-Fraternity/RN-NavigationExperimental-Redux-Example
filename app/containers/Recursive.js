@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import FirstScreen from '../components/FirstScreen'
+import RecursiveScreen from '../components/RecursiveScreen'
 import { navigatePush } from '../actions'
 
 
@@ -12,9 +12,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		onButtonPress: () => {
-			dispatch(navigatePush('Second'))
-		},
-		onButtonPress2: () => {
 			dispatch(navigatePush('Recursive'))
 		}
 	}
@@ -23,4 +20,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(FirstScreen)
+)(RecursiveScreen)

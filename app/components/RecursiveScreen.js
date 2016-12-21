@@ -3,9 +3,9 @@ import {View, Text, StyleSheet} from 'react-native'
 
 import NavButton from './NavButton'
 
-const id = 'FirstScreen'
+const id = 'RecursiveScreen'
 
-const FirstScreen = React.createClass({
+const RecursiveScreen = React.createClass({
 	PropTypes: {
 		onButtonPress: PropTypes.func.isRequired
 	},
@@ -14,11 +14,9 @@ const FirstScreen = React.createClass({
 		console.log(`render:                    ${id}`)
 		return (
 			<View style={styles.container}>
-				<Text style={styles.title}>First Screen</Text>
+				<Text style={styles.title}>Recursive Screen</Text>
 
-				<NavButton destLabel="Second" buttonHandler={this.props.onButtonPress} />
-				<Text/>
-				<NavButton destLabel="Recursive" buttonHandler={this.props.onButtonPress2} />
+				<NavButton destLabel="Recursive" buttonHandler={this.props.onButtonPress} />
 			</View>
 		)
 	},
@@ -44,4 +42,4 @@ const styles = StyleSheet.create({
 	}
 })
 
-export default FirstScreen
+export default RecursiveScreen

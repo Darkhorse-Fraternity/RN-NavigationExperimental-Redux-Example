@@ -8,6 +8,7 @@ import First from './First'
 import Second from './Second'
 import Third from './Third'
 import Modal from './Modal'
+import Recursive from './Recursive'
 import { navigatePop } from '../actions'
 
 const {
@@ -77,6 +78,8 @@ class AppContainer extends React.Component {
 			return <Third />
 		case 'Modal':
 			return <Modal />
+		case 'Recursive':
+			return <Recursive />
 		}
 	}
 }
