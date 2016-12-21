@@ -3,6 +3,8 @@ import {View, Text, StyleSheet} from 'react-native'
 
 import NavButton from './NavButton'
 
+const id = 'ModalScreen'
+
 const ModalScreen = React.createClass({
 	PropTypes: {
 		onButtonPress: PropTypes.func.isRequired
@@ -16,7 +18,12 @@ const ModalScreen = React.createClass({
 				<NavButton destLabel="(POP) Second" buttonHandler={this.props.onButtonPress} />
 			</View>
 		)
-	}
+	},
+
+	componentWillMount()        { console.log(`componentWillMount:        ${id}`)},
+	componentWillReceiveProps() { console.log(`componentWillReceiveProps: ${id}`)},
+	componentWillUpdate()       { console.log(`componentWillUpdate:       ${id}`)},
+	componentWillUnmount()      { console.log(`componentWillUnmount:      ${id}`)},
 })
 
 const styles = StyleSheet.create({

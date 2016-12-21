@@ -3,6 +3,8 @@ import {View, Text, StyleSheet} from 'react-native'
 
 import NavButton from './NavButton'
 
+const id = 'SecondScreen'
+
 const SecondScreen = React.createClass({
 	PropTypes: {
 		onButtonPress: PropTypes.func.isRequired,
@@ -21,7 +23,12 @@ const SecondScreen = React.createClass({
 				</View>
 			</View>
 		)
-	}
+	},
+
+	componentWillMount()        { console.log(`componentWillMount:        ${id}`)},
+	componentWillReceiveProps() { console.log(`componentWillReceiveProps: ${id}`)},
+	componentWillUpdate()       { console.log(`componentWillUpdate:       ${id}`)},
+	componentWillUnmount()      { console.log(`componentWillUnmount:      ${id}`)},
 })
 
 const styles = StyleSheet.create({
