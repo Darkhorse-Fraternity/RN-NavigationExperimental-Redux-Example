@@ -11,6 +11,7 @@ const ModalScreen = React.createClass({
 	},
 
 	render() {
+		console.log(`render:                    ${id}`)
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>This is a Modal Screen</Text>

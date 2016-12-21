@@ -11,6 +11,7 @@ const FirstScreen = React.createClass({
 	},
 
 	render() {
+		console.log(`render:                    ${id}`)
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>First Screen</Text>

@@ -12,6 +12,7 @@ const SecondScreen = React.createClass({
 	},
 
 	render() {
+		console.log(`render:                    ${id}`)
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>Second Screen</Text>
