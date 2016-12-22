@@ -68,8 +68,9 @@ class AppContainer extends React.Component {
 
 	_renderScene({scene}) {
 		const { route } = scene
+		const key = route.key.split('%')[0]
 		
-		switch(route.key) {
+		switch(key) {
 		case 'First':
 			return <First />
 		case 'Second':

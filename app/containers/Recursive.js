@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 
 import RecursiveScreen from '../components/RecursiveScreen'
 import { navigatePush } from '../actions'
+import uuid from 'react-native-uuid'
 
 
 const mapStateToProps = (state) => {
@@ -12,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		onButtonPress: () => {
-			dispatch(navigatePush('Recursive'))
+			dispatch(navigatePush(`Recursive%${uuid.v4()}`))
 		}
 	}
 }

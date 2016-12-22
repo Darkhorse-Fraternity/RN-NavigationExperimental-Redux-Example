@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 
 import FirstScreen from '../components/FirstScreen'
 import { navigatePush } from '../actions'
+import uuid from 'react-native-uuid'
 
 
 const mapStateToProps = (state) => {
@@ -15,7 +16,7 @@ const mapDispatchToProps = (dispatch) => {
 			dispatch(navigatePush('Second'))
 		},
 		onButtonPress2: () => {
-			dispatch(navigatePush('Recursive'))
+			dispatch(navigatePush(`Recursive%${uuid.v4()}`))
 		}
 	}
 }
