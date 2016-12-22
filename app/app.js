@@ -7,8 +7,9 @@ import reducers from './reducers'
 import AppContainer from './containers/AppContainer'
 import AppContainerWithCardStack from './containers/AppContainerWithCardStack'
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
-const store = createStoreWithMiddleware(reducers)
+//const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
+//const store = createStoreWithMiddleware(reducers)
+const store = createStore(reducers, {}, applyMiddleware(thunk))
 
 export default class App extends Component {
 	render() {
