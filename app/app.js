@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 
@@ -9,7 +9,10 @@ import AppContainerWithCardStack from './containers/AppContainerWithCardStack'
 
 //const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
 //const store = createStoreWithMiddleware(reducers)
-const store = createStore(reducers, {}, applyMiddleware(thunk))
+const store = createStore(reducers, {}, compose(
+	applyMiddleware(thunk),
+	global.reduxNativeDevTools ? global.reduxNativeDevTools(/*options*/) : nope => nope
+))
 
 export default class App extends Component {
 	render() {
