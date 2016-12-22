@@ -30,7 +30,7 @@ const RecursiveScreen = React.createClass({
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: '#2F9CB2',
+		backgroundColor: '#F44336',
 		justifyContent: 'center',
 		alignItems: 'center'
 	},

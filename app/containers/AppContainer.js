@@ -68,7 +68,7 @@ class AppContainer extends React.Component {
 
 	_renderScene({scene}) {
 		const { route } = scene
-		const key = route.key.split('%')[0]
+		const [key, routeUUID] = route.key.split('%')
 		
 		switch(key) {
 		case 'First':
@@ -80,7 +80,7 @@ class AppContainer extends React.Component {
 		case 'Modal':
 			return <Modal />
 		case 'Recursive':
-			return <Recursive />
+			return <Recursive routeUUID={routeUUID} />
 		}
 	}
 }
