@@ -20,7 +20,7 @@ export default class App extends Component {
 			<Provider store={store}>
 				{/* Change the component below to flip between the NavigationTransitioner
 				    and the NavigationCardStack examples: */ }
-				<AppContainer />
+				<AppContainerWithCardStack />
 			</Provider>
 		)
 	}

@@ -24,7 +24,7 @@ class AppContainerWithCardStack extends React.Component {
 
 		return (
 
-			// Redux is handling the reduction of our state for us. We grab the navigationState 
+			// Redux is handling the reduction of our state for us. We grab the navigationState
 			// we have in our Redux store and pass it directly to the <NavigationCardStack />.
 			<NavigationCardStack
 				navigationState={navigationState}
@@ -51,8 +51,9 @@ class AppContainerWithCardStack extends React.Component {
 
 	_renderScene({scene}) {
 		const { route } = scene
-		
-		switch(route.key) {
+		const [key, routeUUID] = route.key.split('%')
+
+		switch(key) {
 		case 'First':
 			return <First />
 		case 'Second':
@@ -62,7 +63,7 @@ class AppContainerWithCardStack extends React.Component {
 		case 'Modal':
 			return <Modal />
 		case 'Recursive':
-			return <Recursive />
+			return <Recursive routeUUID={routeUUID} />
 		}
 	}
 }

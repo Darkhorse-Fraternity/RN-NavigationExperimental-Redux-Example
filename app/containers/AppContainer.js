@@ -24,7 +24,7 @@ class AppContainer extends React.Component {
 
 		return (
 
-			// Redux is handling the reduction of our state for us. We grab the navigationState 
+			// Redux is handling the reduction of our state for us. We grab the navigationState
 			// we have in our Redux store and pass it directly to the <NavigationTransitioner />.
 			<NavigationTransitioner
 				navigationState={navigationState}
@@ -33,11 +33,11 @@ class AppContainer extends React.Component {
 					// This mimics the same type of work done in a NavigationCardStack component
 					<View style={styles.container}>
 						<NavigationCard
-							// NavigationTransitioners render method passes `navigationState` as a 
+							// NavigationTransitioners render method passes `navigationState` as a
 							// prop to here, so we expand it plus other props out in <NavigationCard>.
 							{...props}
 							// Transition animations are determined by the StyleInterpolators. Here we manually
-							// override the default horizontal style interpolator that gets applied inside of 
+							// override the default horizontal style interpolator that gets applied inside of
 							// NavigationCard for a vertical direction animation if we are showing a modal.
 							// (Passing undefined causes the default interpolator to be used in NavigationCard.)
 							style={props.scene.route.key === 'Modal' ?
@@ -69,7 +69,7 @@ class AppContainer extends React.Component {
 	_renderScene({scene}) {
 		const { route } = scene
 		const [key, routeUUID] = route.key.split('%')
-		
+
 		switch(key) {
 		case 'First':
 			return <First />
