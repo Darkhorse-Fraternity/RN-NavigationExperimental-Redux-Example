@@ -6,11 +6,14 @@ import NavButton from './NavButton'
 const RecursiveScreen = React.createClass({
 	PropTypes: {
 		routeUUID: PropTypes.string,
-		onButtonPress: PropTypes.func.isRequired
+		onButtonPress: PropTypes.func.isRequired,
+		onLoad: PropTypes.func.isRequired,
+		recursiveLookupTable: PropTypes.array
 	},
 
 	render() {
 		console.log(`render:                    ${this.id}`)
+		console.log(this.props.recursiveLookupTable)
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>Recursive Screen</Text>
@@ -22,9 +25,19 @@ const RecursiveScreen = React.createClass({
 		this.id = `RecursiveScreen%${this.props.routeUUID}`
 		return null
 	},
-	componentWillMount()        { console.log(`componentWillMount:        ${this.id}`)},
-	componentWillReceiveProps() { console.log(`componentWillReceiveProps: ${this.id}`)},
-	componentWillUpdate()       { console.log(`componentWillUpdate:       ${this.id}`)},
+	componentWillMount() {
+		console.log(`componentWillMount:        ${this.id}`)
+		const [key, routeUUID] = this.id.split('%')
+		this.props.onLoad(routeUUID)
+	},
+	componentWillReceiveProps({recursiveLookupTable}) {
+		console.log(`componentWillReceiveProps: ${this.id}`)
+		console.log('recursiveLookupTable: ', this.props.recursiveLookupTable)
+	},
+	componentWillUpdate()       {
+		console.log(`componentWillUpdate:       ${this.id}`)
+		console.log('recursiveLookupTable: ', this.props.recursiveLookupTable)
+	},
 	componentWillUnmount()      { console.log(`componentWillUnmount:      ${this.id}`)},
 })
 

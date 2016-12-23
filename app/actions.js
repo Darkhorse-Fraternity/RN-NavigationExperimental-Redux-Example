@@ -5,6 +5,7 @@ export const NAV_POP = 'NAV_POP'
 export const NAV_JUMP_TO_KEY = 'NAV_JUMP_TO_KEY'
 export const NAV_JUMP_TO_INDEX = 'NAV_JUMP_TO_INDEX'
 export const NAV_RESET = 'NAV_RESET'
+export const ADD_TO_RECURSIVE_LOOKUP_TABLE = 'ADD_TO_RECURSIVE_LOOKUP_TABLE'
 
 
 // *** Action Creators ***
@@ -42,5 +43,12 @@ export function navigateReset(routes, index) {
 		type: NAV_RESET,
 		index,
 		routes
+	}
+}
+
+export function addToRecursiveLookupTable(id) {
+	return {
+		type: ADD_TO_RECURSIVE_LOOKUP_TABLE,
+		id
 	}
 }
