@@ -6,9 +6,9 @@ import uuid from 'react-native-uuid'
 
 
 const mapStateToProps = (state) => {
-	console.log('mapStateToProps', state)
+	// console.log('mapStateToProps', state)
 	return {
-		recursiveLookupTable: state.recursiveState.recursiveLookupTable
+		recursiveLookupTable: state.recursiveState.get('recursiveLookupTable')
 	}
 }
 

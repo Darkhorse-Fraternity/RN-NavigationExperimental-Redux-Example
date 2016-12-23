@@ -13,7 +13,7 @@ const RecursiveScreen = React.createClass({
 
 	render() {
 		console.log(`render:                    ${this.id}`)
-		console.log(this.props.recursiveLookupTable)
+		console.log(this.props.recursiveLookupTable.toJS())
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>Recursive Screen</Text>
@@ -32,11 +32,11 @@ const RecursiveScreen = React.createClass({
 	},
 	componentWillReceiveProps({recursiveLookupTable}) {
 		console.log(`componentWillReceiveProps: ${this.id}`)
-		console.log('recursiveLookupTable: ', this.props.recursiveLookupTable)
+		// console.log('recursiveLookupTable: ', this.props.recursiveLookupTable.toJS())
 	},
 	componentWillUpdate()       {
 		console.log(`componentWillUpdate:       ${this.id}`)
-		console.log('recursiveLookupTable: ', this.props.recursiveLookupTable)
+		// console.log('recursiveLookupTable: ', this.props.recursiveLookupTable.toJS())
 	},
 	componentWillUnmount()      { console.log(`componentWillUnmount:      ${this.id}`)},
 })
