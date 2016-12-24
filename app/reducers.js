@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux'
+import { Map } from 'immutable'
 import * as NavigationStateUtils from 'NavigationStateUtils'
 
-import { NAV_PUSH, NAV_POP, NAV_JUMP_TO_KEY, NAV_JUMP_TO_INDEX, NAV_RESET } from './actions'
+import { NAV_PUSH, NAV_POP, NAV_JUMP_TO_KEY, NAV_JUMP_TO_INDEX, NAV_RESET, ADD_TO_RECURSIVE_LOOKUP_TABLE } from './actions'
 const initialNavState = {
 	index: 0,
 	routes: [
@@ -37,8 +38,25 @@ function navigationState(state = initialNavState, action) {
 	}
 }
 
+const initialRecursiveState = Map({
+	recursiveLookupTable: Map({})
+})
+
+function recursiveState(state = initialRecursiveState, action) {
+	switch (action.type) {
+		case ADD_TO_RECURSIVE_LOOKUP_TABLE:
+			// console.log('addto', state)
+			return state.setIn(['recursiveLookupTable', action.id], 'hello')
+
+		default:
+			// console.log('default', state)
+			return state
+	}
+}
+
 const appReducers = combineReducers({
-	navigationState
+	navigationState,
+	recursiveState
 })
 
 export default appReducers
