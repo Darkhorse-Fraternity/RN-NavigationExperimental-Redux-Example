@@ -8,15 +8,15 @@ const RecursiveScreen = React.createClass({
 		routeUUID: PropTypes.string,
 		onButtonPress: PropTypes.func.isRequired,
 		onLoad: PropTypes.func.isRequired,
-		recursiveLookupTable: PropTypes.array
+		recursiveLookupTable: PropTypes.object
 	},
 
 	render() {
 		console.log(`render:                    ${this.id}`)
-		console.log(this.props.recursiveLookupTable)
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>Recursive Screen</Text>
+				<Text style={[]}>{this.props.recursiveLookupTable}</Text>
 				<NavButton destLabel="Recursive" buttonHandler={this.props.onButtonPress} />
 			</View>
 		)
