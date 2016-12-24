@@ -13,7 +13,7 @@ const RecursiveScreen = React.createClass({
 
 	render() {
 		console.log(`render:                    ${this.id}`)
-		console.log(this.props.recursiveLookupTable.toJS())
+		console.log(this.props.recursiveLookupTable)
 		return (
 			<View style={styles.container}>
 				<Text style={styles.title}>Recursive Screen</Text>

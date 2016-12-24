@@ -5,10 +5,11 @@ import { navigatePush, addToRecursiveLookupTable } from '../actions'
 import uuid from 'react-native-uuid'
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
 	// console.log('mapStateToProps', state)
+	// console.log('ownProps:', ownProps)
 	return {
-		recursiveLookupTable: state.recursiveState.get('recursiveLookupTable')
+		recursiveLookupTable: state.recursiveState.getIn(['recursiveLookupTable', ownProps.routeUUID])
 	}
 }
 
