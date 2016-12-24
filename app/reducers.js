@@ -46,7 +46,7 @@ function recursiveState(state = initialRecursiveState, action) {
 	switch (action.type) {
 		case ADD_TO_RECURSIVE_LOOKUP_TABLE:
 			// console.log('addto', state)
-			return state.setIn(['recursiveLookupTable', action.id], 'hello')
+			return state.setIn(['recursiveLookupTable', action.id], `hello ${action.id}`)
 
 		default:
 			// console.log('default', state)
