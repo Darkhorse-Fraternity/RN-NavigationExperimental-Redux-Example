@@ -1,14 +1,29 @@
 import { combineReducers } from 'redux'
-import { Map } from 'immutable'
+import { Map, fromJS } from 'immutable'
 import * as NavigationStateUtils from 'NavigationStateUtils'
 
 import { NAV_PUSH, NAV_POP, NAV_JUMP_TO_KEY, NAV_JUMP_TO_INDEX, NAV_RESET, ADD_TO_RECURSIVE_LOOKUP_TABLE } from './actions'
-const initialNavState = {
-	index: 0,
-	routes: [
-		{ key: 'First', title: 'First' }
-	]
-}
+const initialNavState = fromJS({
+	tabs: {
+		index: 0,
+		routes: [
+			{ key: 'First', title: 'First' },
+			{ key: 'Second', title: 'Second' }
+		]
+	},
+	First: {
+		index: 0,
+		routes: [
+			{ key: 'First', title: 'First' }
+		]
+	},
+	Second: {
+		index: 0,
+		routes: [
+			{ key: 'Second', title: 'Second' }
+		]
+	}
+})
 
 function navigationState(state = initialNavState, action) {
 	switch (action.type) {
@@ -24,7 +39,12 @@ function navigationState(state = initialNavState, action) {
 		return NavigationStateUtils.jumpTo(state, action.key)
 
 	case NAV_JUMP_TO_INDEX:
-		return NavigationStateUtils.jumpToIndex(state, action.index)
+		const tabs = state.get('tabs').toJS()
+		const nextTabs = NavigationStateUtils.jumpToIndex(tabs, action.index)
+		if (tabs !== nextTabs) {
+			return state.set('tabs', fromJS(nextTabs))
+		}
+		return state
 
 	case NAV_RESET:
 		return {

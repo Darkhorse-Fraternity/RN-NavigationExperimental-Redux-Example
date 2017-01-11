@@ -13,12 +13,14 @@ const FirstScreen = React.createClass({
 	render() {
 		console.log(`render:                    ${id}`)
 		return (
-			<View style={styles.container}>
-				<Text style={styles.title}>First Screen</Text>
+			<View style={{ flex: 1, backgroundColor: 'red' }}>
+				<View style={styles.container}>
+					<Text style={styles.title}>First Screen</Text>
 
-				<NavButton destLabel="Second" buttonHandler={this.props.onButtonPress} />
-				<Text/>
-				<NavButton destLabel="Recursive" buttonHandler={this.props.onButtonPress2} />
+					<NavButton destLabel="Second" buttonHandler={this.props.onButtonPress} />
+					<Text/>
+					<NavButton destLabel="Recursive" buttonHandler={this.props.onButtonPress2} />
+				</View>
 			</View>
 		)
 	},
